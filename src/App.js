@@ -20,7 +20,7 @@ class App extends React.Component {
     this.setState({
       [name]: value,
     });
-  }
+  };
 
   render() {
     const { name, description, attr1, attr2, attr3, image, rare, trunfo } = this.state;
@@ -28,27 +28,28 @@ class App extends React.Component {
       <div>
         <h1>Tryunfo</h1>
         <Form
-          cardName={name}
-          cardDescription={description}
-          cardAttr1={attr1}
-          cardAttr2={attr2}
-          cardAttr3={attr3}
-          cardImage={image}
-          cardRare={rare}
-          cardTrunfo={trunfo}
-          onInputChange={this.handleChange}
+          cardName={ name }
+          cardDescription={ description }
+          cardAttr1={ attr1 }
+          cardAttr2={ attr2 }
+          cardAttr3={ attr3 }
+          cardImage={ image }
+          cardRare={ rare }
+          cardTrunfo={ trunfo }
+          onInputChange={ this.handleChange }
         />
         <Card
-          cardName={name}
-          cardDescription={description}
-          cardAttr1={attr1}
-          cardAttr2={attr2}
-          cardAttr3={attr3}
-          cardImage={image}
-          cardRare={rare}
-          cardTrunfo={trunfo}
-          onInputChange={this.handleChange} />
-      </div >
+          cardName={ name }
+          cardDescription={ description }
+          cardAttr1={ attr1 }
+          cardAttr2={ attr2 }
+          cardAttr3={ attr3 }
+          cardImage={ image }
+          cardRare={ rare }
+          cardTrunfo={ trunfo }
+          onInputChange={ this.handleChange }
+        />
+      </div>
     );
   }
 }
