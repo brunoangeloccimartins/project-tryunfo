@@ -13,6 +13,7 @@ class App extends React.Component {
     rare: 'normal',
     trunfo: false,
     disabled: true,
+    cards: [],
   };
 
   disabled = () => {
@@ -29,6 +30,27 @@ class App extends React.Component {
       && image.length > 0;
 
     this.setState({ disabled: !(maxAttr && validation) });
+  };
+
+  savedCards = () => {
+    const { name, attr1, attr2, attr3, description, image, rare, trunfo } = this.state;
+
+    const saved = {
+      name, attr1, attr2, attr3, description, image, rare, trunfo,
+    };
+
+    this.setState((prevState) => ({
+      cards: [...prevState.cards, saved],
+      name: '',
+      attr1: '0',
+      attr2: '0',
+      attr3: '0',
+      description: '',
+      image: '',
+      rare: '',
+      trunfo: false,
+      disabled: true,
+    }));
   };
 
   handleChange = ({ target }) => {
@@ -56,6 +78,7 @@ class App extends React.Component {
           cardTrunfo={ trunfo }
           onInputChange={ this.handleChange }
           isSaveButtonDisabled={ disabled }
+          onSaveButtonClick={ this.savedCards }
         />
         <Card
           cardName={ name }
