@@ -63,6 +63,7 @@ class Form extends React.Component {
         <input
           type="text"
           data-testid="image-input"
+          name="image"
           value={ cardImage }
           onChange={ onInputChange }
         />
@@ -70,6 +71,7 @@ class Form extends React.Component {
           Raridade da Carta:
           <select
             data-testid="rare-input"
+            name="rare"
             value={ cardRare }
             onChange={ onInputChange }
           >
@@ -111,6 +113,9 @@ Form.propTypes = {
   isSaveButtonDisabled: PropTypes.bool.isRequired,
   onInputChange: PropTypes.func.isRequired,
   onSaveButtonClick: PropTypes.func.isRequired,
+};
+Form.defaultprops = {
+  onSaveButtonClick: () => { },
 };
 
 export default Form;
