@@ -72,7 +72,7 @@ class App extends React.Component {
 
   render() {
     const { name, description, attr1, attr2, attr3, image, rare, trunfo,
-      disabled, hasTrunfo } = this.state;
+      disabled, hasTrunfo, cards } = this.state;
     return (
       <div>
         <h1>Tryunfo</h1>
@@ -101,6 +101,19 @@ class App extends React.Component {
           cardTrunfo={ trunfo }
           onInputChange={ this.handleChange }
         />
+        {cards.map((element, index) => (
+          <Card
+            key={ index }
+            cardName={ element.name }
+            cardDescription={ element.description }
+            cardAttr1={ element.attr1 }
+            cardAttr2={ element.attr2 }
+            cardAttr3={ element.attr3 }
+            cardImage={ element.image }
+            cardRare={ element.rare }
+            cardTrunfo={ element.trunfo }
+          />
+        ))}
       </div>
     );
   }
