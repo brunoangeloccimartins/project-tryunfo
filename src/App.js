@@ -14,6 +14,7 @@ class App extends React.Component {
     trunfo: false,
     disabled: true,
     cards: [],
+    hasTrunfo: false,
   };
 
   disabled = () => {
@@ -30,6 +31,14 @@ class App extends React.Component {
       && image.length > 0;
 
     this.setState({ disabled: !(maxAttr && validation) });
+  };
+
+  hasTrunfo = () => {
+    const { cards } = this.state;
+    const check = cards.some((element) => element.trunfo);
+    this.setState({
+      hasTrunfo: check,
+    });
   };
 
   savedCards = () => {
@@ -50,7 +59,7 @@ class App extends React.Component {
       rare: '',
       trunfo: false,
       disabled: true,
-    }));
+    }), this.hasTrunfo);
   };
 
   handleChange = ({ target }) => {
@@ -63,7 +72,7 @@ class App extends React.Component {
 
   render() {
     const { name, description, attr1, attr2, attr3, image, rare, trunfo,
-      disabled } = this.state;
+      disabled, hasTrunfo } = this.state;
     return (
       <div>
         <h1>Tryunfo</h1>
@@ -79,6 +88,7 @@ class App extends React.Component {
           onInputChange={ this.handleChange }
           isSaveButtonDisabled={ disabled }
           onSaveButtonClick={ this.savedCards }
+          hasTrunfo={ hasTrunfo }
         />
         <Card
           cardName={ name }
